@@ -58,13 +58,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Cookie accessTokenCookie = new Cookie("accessToken", accessToken);
         accessTokenCookie.setHttpOnly(true);
         accessTokenCookie.setPath("/");
-        accessTokenCookie.setSecure(false); // Sử dụng true nếu là môi trường production với HTTPS
+        accessTokenCookie.setSecure(true); // Sử dụng true nếu là môi trường production với HTTPS
         response.addCookie(accessTokenCookie);
 
         Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken);
         refreshTokenCookie.setHttpOnly(true);
         refreshTokenCookie.setPath("/");
-        refreshTokenCookie.setSecure(false); // Sử dụng true nếu là môi trường production với HTTPS
+        refreshTokenCookie.setSecure(true); // Sử dụng true nếu là môi trường production với HTTPS
         response.addCookie(refreshTokenCookie);
 
         return LoginRes.builder()
@@ -83,7 +83,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             Cookie accessTokenCookie = new Cookie("accessToken", newAccessToken);
             accessTokenCookie.setHttpOnly(true);
             accessTokenCookie.setPath("/");
-            accessTokenCookie.setSecure(false); // Sử dụng true nếu là môi trường production với HTTPS
+            accessTokenCookie.setSecure(true); // Sử dụng true nếu là môi trường production với HTTPS
             response.addCookie(accessTokenCookie);
             System.out.println("Access token moi la: " + newAccessToken);
             return newAccessToken;
